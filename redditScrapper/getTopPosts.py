@@ -10,13 +10,12 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 USER_AGENT = os.getenv('USER_AGENT')
 
-
 reddit_read_only = praw.Reddit(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, user_agent=USER_AGENT)
 
 subreddit = reddit_read_only.subreddit('AskReddit')
 
-posts = subreddit.top(time_filter="month")
-# Scraping the top posts of the current month
+posts = subreddit.top(time_filter="day")
+# Scraping the top posts of the current day
 
 posts_dict = {"Title": [], "Post Text": [],
               "ID": [], "Score": [],
