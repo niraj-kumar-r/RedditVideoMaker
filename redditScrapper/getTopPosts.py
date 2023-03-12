@@ -15,7 +15,7 @@ def get_reddit_posts(subreddit_name='AskReddit', limit=10):
 
     subreddit = reddit_read_only.subreddit(subreddit_name)
 
-    posts = subreddit.top(time_filter="day", limit=limit)
+    posts: object = subreddit.top(time_filter="day", limit=limit)
     # Scraping the top posts of the current day
 
     return posts
