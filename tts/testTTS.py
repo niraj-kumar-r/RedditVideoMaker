@@ -1,10 +1,8 @@
+import asyncio
 from gtts import gTTS
 
-myText = "Which profession attracts the worst kinds of people?"
 
-language = 'en'
-
-output = gTTS(text=myText, lang=language, slow=False, tld='us')
-
-output.save("output.mp3")
-
+async def convert_text_to_speech(posts):
+    async with asyncio.TaskGroup as tg:
+        for post in posts:
+            tg.create_task(getVoice(post))
